@@ -1,0 +1,24 @@
+Good implementations for rules
+# Penalize schedules that have for each day only 2h or less for each classroom used
+    for i in spots:
+        summ = 0
+        for j in i: summ += j
+
+        if summ < 3: issue += 5 
+
+
+
+# Dvakrat dobil perfekten urnik
+
+Best parameter [10.  1.  8.  1. 13.  0. 14.  1. 12.  2. 14.  0. 41.  2. 10.  1. 31.  3.
+ 12.  3. 21.  1. 10.  2. 30.  3. 10.  3. 11.  0. 11.  0. 40.  2. 12.  1.
+ 20.  1. 12.  2.]
+Fitness 0
+Index 0
+
+
+Best parameter [31.  1.  9.  3. 21.  3. 10.  2. 41.  3. 14.  3. 20.  2. 14.  2. 12.  0.
+ 12.  1. 30.  0. 10.  1. 13.  0. 14.  1. 11.  2. 11.  0. 10.  1. 14.  0.
+ 40.  1. 12.  3.]
+Fitness 0
+Index 0
