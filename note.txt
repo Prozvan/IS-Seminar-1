@@ -10,16 +10,10 @@ Good implementations for rules
 
 
 Task 2
-
-Use PyGAD lifecycle callbacks (on mutation, on crossover,
-etc.) to compare how quickly each step of the algorithm executes compared
-to the one in Task 1 and how quickly the fitness function increases.
-
-- Fintess scores array needs fixing (it showing all fitness)
-
 Za custom crossover/mutation/initial population nisem uporabil vseh constraintov za schedules, ker
 je nekatere težje za implementirat (hardcod-at) in itak za to poskrbi fitnes funkcija
 
+Task3
 
 Zagnal 100 testov (fitness score):
 - [62, 0, 0, 35, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0] -> 62krat fitnes score: 0, 35krat: -3 in 3krat: -6
