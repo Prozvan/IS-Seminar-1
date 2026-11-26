@@ -1,0 +1,62 @@
+1. why limit teachers to 20 instead of 24?
+2. Why penalties 10/6/3 ? -> potrebujem za task4 predstavitev
+     issue += abs(classroomTime[id_Classroom][0] - startHour) * 6
+     issue += (endHour - classroomTime[id_Classroom][1]) * 6
+     if spots[id_Classroom][i] > 1: issue += 3 * (spots[id_Classroom][i] - 1)
+
+
+3.Zakaj pri classroms najprej povecas in nato preverjas pri profesorjih pa ravno obratno?
+Ker ne bodo iste kazni?
+    
+            for i in range(validStart, validEnd):
+            spots[id_Classroom][i]+=1
+
+            # Lectures cannot overlap in the same classroom: a single classroom can hold only a single lecture in a given hour.
+            # For every value that is more than 1 -> +1 issue
+
+            # PEnantly if more than 1
+            if spots[id_Classroom][i] > 1: issue += 3 * (spots[id_Classroom][i] - 1)
+
+        # Teachers cannot teach more than one lecture at the same time. (So across all the classrooms in a day)
+        for i in range(startHour, endHour):
+            # If teacher already has a class at that hour
+            if teacherSpots[id_Teacher][i] > 0:
+                issue += 3
+            teacherSpots[id_Teacher][i] += 1
+
+    Bi potem prislo:
+        ucilnice: +3 (ce se pokrivata 2) + 6 (ko se pokrivajo 3) = 9
+        profesorji: +3 (ko 2) + 3 (ko 3) = 6
+
+    torej manjsa kazen?
+
+
+4. Why swap mutation and uniform crossover?
+
+5. Task 2: which constraints are left out of the custom crossover/mutation/initial population, and why?
+   (note.txt says some were too hard to implement)
+
+6. The 100-run test in note.txt (62x fitness 0, 35x -3, 3x -6): which task was that, Task 2 or Task 3?
+   Task 1 alone reaches 0 in only 2 of 100 seeds (seeds 51, 72).
+   The commented loop calls run(), which doesn't exist in the notebook -> where is that code?
+
+7. Task 2: why single-point crossover instead of e.g. two-point or uniform per lecture?
+
+8. Task 2: why does mutation change exactly 1 gene per child, always?
+   Why +-1 hour for the start time instead of a random time?
+
+9. Task 2: the initial population fills classrooms in order (P1 first, then P2, ...).
+   Was that deliberate, or would a random starting classroom be fine?
+
+10. Task 3: how were the preference weights chosen -> -0.10 per liked hour, +0.25 per disliked hour?
+    (comment says 0.25 / 0.5 caused overlaps -> how was that tested, which values were tried?)
+
+11. Task 3: how was 0.25 chosen as the balance penalty (per started hour away from the average)?
+    Why punish overworking and underworking the same? E.g. a teacher with too many hours could be
+    punished more than one with too few (or the other way around).
+    Why ceil? With the example data perfect balance is impossible (22 h / 4 teachers = 5.5),
+    so there is always at least 1.0 balance penalty.
+
+12. Task 3: why a separate fSoft if the same code was also inside f?
+    (I changed f to call fSoft: issue += fSoft(teacherSpots) -> same results, code only once)
+
