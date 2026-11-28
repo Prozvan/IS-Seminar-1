@@ -1,0 +1,3 @@
+T1 {"likes": [15, 17], "dislikes": [14, 15]}
+T2 {"likes": [10, 12], "dislikes": [14, 15]}
+T3 {"likes": [12, 14], "dislikes": [8, 9]}
