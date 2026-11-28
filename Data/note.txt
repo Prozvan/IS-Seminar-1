@@ -1,0 +1,28 @@
+Good implementations for rules
+# Penalize schedules that have for each day only 2h or less for each classroom used
+    for i in spots:
+        summ = 0
+        for j in i: summ += j
+
+        if summ < 3: issue += 5 
+
+
+
+
+Task 2
+Za custom crossover/mutation/initial population nisem uporabil vseh constraintov za schedules, ker
+je nekatere težje za implementirat (hardcod-at) in itak za to poskrbi fitnes funkcija
+
+Task 3
+Vse implementiral dejansko
+- Using a single fitness function that takes into account both constraints.
+    Hitro tko 2 sekundi
+• Using multi objective optimization
+    Tko 10 sekund ampak da zelo dobre rezultate
+
+Zagnal 100 testov (fitness score):
+- [62, 0, 0, 35, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0] -> 62krat fitnes score: 0, 35krat: -3 in 3krat: -6
+- [63, 0, 0, 36, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+- [66, 0, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+
